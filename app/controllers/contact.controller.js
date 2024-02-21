@@ -1,3 +1,5 @@
+const { MongoAPIError } = require("mongodb");
+
 exports.create = (req, res) => {
     res.send({message:"create handler"});
 };
@@ -26,3 +28,13 @@ exports.deleteAll = (req, res) => {
 exports.findAllFavorite = (req, res) => {
     res.send({ message: "findAllFavorite handler" });
 };
+exports.create =async (req,res, next ) => {
+    if(!req.body?.name) {
+        return next( APIError(400, "name can not be empty"));
+    }
+    try {
+
+    } catch(error){
+        
+    }
+}
